@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
+import 'package:hello/calculator/calculator.dart';
 import 'package:hello/chat/chat.dart';
 import 'package:hello/counterForBasitStateManagement/counter.dart';
 import 'package:hello/drawer/drawer.dart';
 import 'package:hello/tabBars/tabBars.dart';
+import 'package:hello/todoApp/todoApp.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,6 +49,22 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Counter()));
+                },
+              ),
+              ElevatedButton(
+                child: Text("Calculator"),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CalculatorSetup()));
+                },
+              ),
+              ElevatedButton(
+                child: Text("Todo App"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TodoApp()));
                 },
               ),
             ],
