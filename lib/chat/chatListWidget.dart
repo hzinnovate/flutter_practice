@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget chatListTile(var listItems) {
 
-  print(listItems);
+  // print(listItems);
   return ListTile(
     leading: CircleAvatar(
       backgroundImage: AssetImage("assets/avatar.jpeg"),

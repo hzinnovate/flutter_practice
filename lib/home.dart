@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:hello/calculator/calculator.dart';
 import 'package:hello/chat/chat.dart';
 import 'package:hello/counterForBasitStateManagement/counter.dart';
+import 'package:hello/dataFromApiPractice/api.dart';
 import 'package:hello/drawer/drawer.dart';
 import 'package:hello/tabBars/tabBars.dart';
 import 'package:hello/todoApp/todoApp.dart';
@@ -65,6 +66,13 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => TodoApp()));
+                },
+              ),
+              ElevatedButton(
+                child: Text("API"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Api()));
                 },
               ),
             ],
