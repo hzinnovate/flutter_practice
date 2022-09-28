@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:hello/calculator/calculator.dart';
 import 'package:hello/chat/chat.dart';
+import 'package:hello/connectivityFromFirebase/firebaseConnectivity.dart';
 import 'package:hello/counterForBasitStateManagement/counter.dart';
 import 'package:hello/dataFromApiPractice/api.dart';
 import 'package:hello/drawer/drawer.dart';
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ElevatedButton(
-                child: Text("Counter Basit State"),
+                child: Text("Counter State"),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Counter()));
@@ -71,8 +72,17 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                 child: Text("API"),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Api()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Api()));
+                },
+              ),
+              ElevatedButton(
+                child: Text("Firebase"),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FirebaseConnectivity()));
                 },
               ),
             ],

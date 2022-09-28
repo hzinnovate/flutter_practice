@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "22210022984",
+    "project_id": "hasnain-zaidi",
+    "storage_bucket": "hasnain-zaidi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22210022984:android:7fc7af695ac1919c7bd27d",
+        "android_client_info": {
+          "package_name": "com.example.hello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22210022984-7ukhd49pm4jt9gi7kgll84a52t6nfa53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgZH_kWm4N1kA4iZMi3kIehWbnmH9dz1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22210022984-7ukhd49pm4jt9gi7kgll84a52t6nfa53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
