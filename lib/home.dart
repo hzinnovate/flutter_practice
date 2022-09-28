@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:hello/UcaazUIPages/splashScreen.dart';
 import 'package:hello/calculator/calculator.dart';
 import 'package:hello/chat/chat.dart';
 import 'package:hello/connectivityFromFirebase/firebaseConnectivity.dart';
@@ -83,6 +84,13 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => FirebaseConnectivity()));
+                },
+              ),
+              ElevatedButton(
+                child: Text("Ucaaz"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UcaazMain()));
                 },
               ),
             ],
