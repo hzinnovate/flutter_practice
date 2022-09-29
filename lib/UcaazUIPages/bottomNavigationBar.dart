@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:hello/UcaazUIPages/bottomSheetModals.dart';
+import 'package:hello/UcaazUIPages/shoppingCart.dart';
 import 'package:hello/UcaazUIPages/ucaazHome.dart';
 
 class MainBottomNavigator extends StatefulWidget {
@@ -11,28 +13,6 @@ class MainBottomNavigator extends StatefulWidget {
 class _MainBottomNavigatorState extends State<MainBottomNavigator> {
   int _selectedIndex = 0;
   int _renderUiPage = 0;
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    UcaazHome(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     switch (index) {
@@ -52,75 +32,40 @@ class _MainBottomNavigatorState extends State<MainBottomNavigator> {
         setState(() {
           _selectedIndex = index;
         });
-        showModalBottomSheet<void>(
+        Future<void> future = showModalBottomSheet<void>(
           context: context,
           builder: (BuildContext context) {
-            return Scaffold(
-              backgroundColor: Color(0xfffcf7f1),
-              appBar: AppBar(
-                automaticallyImplyLeading: false,
-                backgroundColor: Color(0xfffcf7f1),
-                elevation: 0,
-                title: const Text(
-                  'Categories',
-                  style: TextStyle(fontSize: 16, color: Color(0xff0f444d)),
-                ),
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.question_mark_sharp,
-                      size: 24,
-                      color: Color(0xff0f444d),
-                    ),
-                  )
-                ],
-              ),
-              body: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                ),
-                children: [
-                  Image.network('https://picsum.photos/250?image=1'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                  Image.network('https://picsum.photos/250?image=2'),
-                  Image.network('https://picsum.photos/250?image=3'),
-                  Image.network('https://picsum.photos/250?image=4'),
-                ],
-              ),
-            );
+            if (_selectedIndex == 1) {
+              return const CategoriesSheet();
+            }
+            if (_selectedIndex == 2) {
+              return const SearchBottomSheet();
+            }
+            if (_selectedIndex == 4) {
+              return const ProfileBottomSheet();
+            }
+            return Container();
           },
         );
+        future.then((value) {
+          setState(() {
+            _selectedIndex = _renderUiPage;
+          });
+        });
     }
   }
 
   Widget _onChangeTabOption(BuildContext context) {
     if (_renderUiPage == 3) {
-      return UcaazHome();
+      return const ShoppingCart();
     }
-    return UcaazHome();
+    return const UcaazHome();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xff075e6d),
       body: _onChangeTabOption(context),
-      // _widgetOptions.elementAt(_renderPage),
       bottomNavigationBar: SizedBox(
         height: 60,
         child: BottomNavigationBar(
@@ -147,9 +92,9 @@ class _MainBottomNavigatorState extends State<MainBottomNavigator> {
             ),
           ],
           currentIndex: _selectedIndex,
-          unselectedItemColor: Color(0xffababab),
+          unselectedItemColor: const Color(0xffababab),
           showUnselectedLabels: true,
-          selectedItemColor: Color(0xff0f444d),
+          selectedItemColor: const Color(0xff0f444d),
           onTap: _onItemTapped,
         ),
       ),
